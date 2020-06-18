@@ -1,0 +1,18 @@
+body{
+    /* color: #1cbfff; */
+    font-family: verdana;
+    color: #888888;
+    
+    /* background-color: #121212; */
+}
+#categories{
+    /* background-color: #ddd; */
+    display: none;
+    background-color: #ddd;
+}
+#category_open{
+    display: inline;
+}
+#category_close{
+    display: none;
+}

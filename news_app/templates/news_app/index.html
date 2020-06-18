@@ -1,0 +1,189 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>News Aggregator</title>
+    <link rel="stylesheet" href="{% static 'news_app/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'news_app/css/main.css' %}">
+    <link rel="stylesheet" href="{% static 'news_app/js/bootstrap.min.js' %}">
+</head>
+<body>
+    <header class='container text-left'>
+        <div class="row">
+            <div class="col-sm-5 mt-3 mr-5">
+                <img id="category_open" src="{% static 'news_app/images/category.png' %}" width=55 height=55 alt="" onclick="category_open()" class='fixed'>
+                <img id="category_close" src="{% static 'news_app/images/close_category.jpg' %}" style='border-radius:300px;' width=55 height=55 alt="" onclick="category_close()" class='fixed'>
+                <span class='ml-3 mt-1 text-dark' style='font-family:stencil;font-size:33px;'>News-Aggregator</span>
+                <div class="container mt-2" id='categories'>
+                    <div class="row mt-2">
+                        <div class="col-sm-6">
+                            <a href="#" class='nav-link ml-4 alert alert-info'>TECHNOLOGY</a>                   
+                            <a href="#" class='nav-link ml-4 alert alert-info'>POLITICS</a>                   
+                            <a href="#" class='nav-link ml-4 alert alert-info'>ECONOMY</a>                   
+                            <a href="#" class='nav-link ml-4 alert alert-info'>BUSINESS</a>                   
+                            <a href="#" class='nav-link ml-4 alert alert-info'>SPORTS</a>                   
+                        </div>
+                        <div class="col-sm-6">
+                            <a href="#" class='nav-link ml-4 alert alert-info'>REGIONAL</a>                   
+                            <a href="#" class='nav-link ml-4 alert alert-info'>INTERNATIONAL</a>                   
+                            <a href="#" class='nav-link ml-4 alert alert-info'>MEDICAL</a>  
+                            <a href="#" class='nav-link ml-4 alert alert-info'>ENTERTAINMENT</a>  
+                            <a href="#" class='nav-link ml-4 alert alert-info'>MISCELLANOUS</a>                   
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-3 ml-1 mt-3 text-center alert alert-warning">
+                <small>TODAY :</small> <br>
+                <small style='color:#000000;'>6th June 2020</small><br>
+                <small style='color:#000000;'>12:30:20 PM</small><br>
+            </div>
+            <div class="col-sm-3 ml-1 mt-3 alert alert-warning text-center">
+                <small>WEATHER :</small> <br>
+                <small>
+                    <select name="region" id="region" class='text-center form-control w-auto mb-1 mt-1 badge badge-warning'>
+                        <script>
+                            var countries = ["Delhi", "Kolkata", "MP", "UP", "Tamil", "Gujarat", "Uttrakhand", "HP", "Telangana"]
+                            var open_tag = "<option>"
+                            var close_tag = "</option>"
+                            for(var i=0;i<countries.length;i++)
+                            {
+                                document.write(open_tag+countries[i]+close_tag)
+                            }
+                        </script>
+                    </select><br>
+                </small>
+                <small style='color:#000000;'>23 Celcius / 296 Ferhenite </small><br>
+                <!-- <small style='color:#000000;'>( Rainy )</small> -->
+            </div>
+        </div>
+    </header>
+
+    <div class="container alert alert-danger mt-4 text-secondary">
+        <h5 class="text-dark">COVID-19 Latest Cases Updates -</h5>
+        <hr>
+        <table class='table' border=1>
+            <tr>
+                <th></th>
+                <th>Infected</th>
+                <th>Deaths</th>
+                <th>Recovered</th>
+            </tr>
+            <tr>
+                <td>World-Wide</td>
+                <td>{{total_cases}}</td>
+                <td>{{total_deaths}}</td>
+                <td>{{total_recovered}}</td>
+            </tr>
+            <tr>
+                <td>India</td>
+                <td>{{india_cases}}</td>
+                <td>{{india_deaths}}</td>
+                <td>{{india_recovered}}</td>
+            </tr>
+        </table>
+    </div>
+
+
+<hr>
+    <div id="news" class="container text-center mt-2 mb-5">
+        <h3 class='alert alert-dark text-secondary mt-2'>TOP LATEST NEWS</h3>
+        
+<!--  -->
+                            <!-- dark mode theme -->
+        
+        <!-- <div style='background-color:#141527;'>Lorem ipsum dolor sit amet consectetur.</div>
+        <div style='background-color:#222f4f;'>Lorem ipsum dolor sit amet consectetur.</div>
+        <div style='background-color:#5ad5ce;'>Lorem ipsum dolor sit amet consectetur.</div>
+        <div style='background-color:#57aaac;'>Lorem ipsum dolor sit amet consectetur.</div>
+        <div style='background-color:#e0e1e4;'>Lorem ipsum dolor sit amet consectetur.</div>
+        <div style='background-color:#86889d;'>Lorem ipsum dolor sit amet consectetur.</div> -->
+
+<!--  -->
+     
+        <div class="card container border-secondary mt-4 mb-4" style="max-width: 1200px;">
+            <div class="card-body">
+              <h4 class="card-title text-dark">RGPV Exams are Postponed</h4>
+              <p class="card-text text-secondary">Lorem ipsum dolor sit amet consectetur adipisicing elit. Provident, repellat?</p>
+            </div>
+            <div class="card-footer bg-transparent border-dark">
+                <div class="row">
+                    <small class="col-sm-6">Updated 26th May 2020</small>
+                    <small class="col-sm-6 text-primary">READ MORE</small>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="card container border-secondary mb-4" style="max-width: 1200px;">
+            <div class="card-body">
+              <h4 class="card-title text-dark">RGPV Exams are Postponed</h4>
+              <p class="card-text text-secondary">Lorem ipsum dolor sit amet consectetur adipisicing elit. Provident, repellat?</p>
+            </div>
+            <div class="card-footer bg-transparent border-dark">
+                <div class="row">
+                    <small class="col-sm-6">Updated 26th May 2020</small>
+                    <small class="col-sm-6 text-primary">READ MORE</small>
+                </div>
+            </div>
+        </div>
+
+        <div class="card container border-secondary mb-4" style="max-width: 1200px;">
+            <div class="card-body">
+              <h4 class="card-title text-dark">RGPV Exams are Postponed</h4>
+              <p class="card-text text-secondary">Lorem ipsum dolor sit amet consectetur adipisicing elit. Provident, repellat?</p>
+            </div>
+            <div class="card-footer bg-transparent border-dark">
+                <div class="row">
+                    <small class="col-sm-6">Updated 26th May 2020</small>
+                    <small class="col-sm-6 text-primary">READ MORE</small>
+                </div>
+            </div>
+        </div>
+
+        <div class="card container border-secondary mb-4" style="max-width: 1200px;">
+            <div class="card-body">
+              <h4 class="card-title text-dark">RGPV Exams are Postponed</h4>
+              <p class="card-text text-secondary">Lorem ipsum dolor sit amet consectetur adipisicing elit. Provident, repellat?</p>
+            </div>
+            <div class="card-footer bg-transparent border-dark">
+                <div class="row">
+                    <small class="col-sm-6">Updated 26th May 2020</small>
+                    <small class="col-sm-6 text-primary">READ MORE</small>
+                </div>
+            </div>
+        </div>
+
+        <div class="card container border-secondary mb-4" style="max-width: 1200px;">
+            <div class="card-body">
+              <h4 class="card-title text-dark">RGPV Exams are Postponed</h4>
+              <p class="card-text text-secondary">Lorem ipsum dolor sit amet consectetur adipisicing elit. Provident, repellat?</p>
+            </div>
+            <div class="card-footer bg-transparent border-dark">
+                <div class="row">
+                    <small class="col-sm-6">Updated 26th May 2020</small>
+                    <small class="col-sm-6 text-primary">READ MORE</small>
+                </div>
+            </div>
+        </div>
+        
+
+        <button class='btn btn-primary'>LOAD MORE</button>
+
+    </div>
+    
+    <footer class='container text-center'>
+        @ COPYWRITE 2020
+    </footer>
+    
+    <script src='{% static "news_app/js/jquery.js" %}'></script>
+    <script src='{% static "news_app/js/react.js" %}'></script>
+    
+</body>
+</html>
+
+<script>
+    
+</script>
