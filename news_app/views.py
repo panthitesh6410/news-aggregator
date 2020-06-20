@@ -38,4 +38,21 @@ def index(request):
         times.append(time)
         a = div.find('a').get('href')
         links.append(a)
-    return render(request, "news_app/index.html", {'total_cases':total_cases, 'total_deaths':total_deaths, 'total_recovered':total_recovered, 'india_cases':india_cases, 'india_deaths':india_deaths, 'india_recovered':india_recovered, 'headlines':headlines, 'details':details, 'times':times, 'links':links})    
+    # more news :
+    more_res = requests.get("https://www.hindustantimes.com/india-news/page/?pageno=2")
+    more_soup = bs4.BeautifulSoup(more_res.content, "lxml")
+    more_divs = more_soup.find_all('div', attrs={'class':'media-body'})
+    more_headlines = []
+    more_details = []
+    more_times = []
+    more_links = []
+    for i in range(1, 15):
+        heading = more_divs[i].a.text
+        more_headlines.append(heading)
+        link = more_divs[i].a.get('href')
+        more_links.append(link)
+        t = more_divs[i].span.text
+        more_times.append(t)  
+        detail = more_divs[i].find('div', attrs={'class':'para-txt'}).text
+        more_details.append(detail)
+    return render(request, "news_app/index.html", {'total_cases':total_cases, 'total_deaths':total_deaths, 'total_recovered':total_recovered, 'india_cases':india_cases, 'india_deaths':india_deaths, 'india_recovered':india_recovered, 'headlines':headlines, 'details':details, 'times':times, 'links':links, 'more_headlines':more_headlines, 'more_details':more_details, 'more_times':more_times, 'more_links':more_links})    

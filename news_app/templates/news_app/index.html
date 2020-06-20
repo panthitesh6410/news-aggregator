@@ -118,7 +118,28 @@
         </div>
     {% endwith %}
     {% endfor %}
-        <button class='btn btn-primary'>LOAD MORE</button>
+        
+    <button class='btn btn-primary' id='load_more' onclick="show_more()">LOAD MORE</button>
+
+    <div class="container" id="more_news">
+        {% for more_x in more_headlines %}
+        {% with forloop.counter|cut:" " as more_index %}
+            <div class="card container border-secondary mt-4 mb-4" style="max-width: 1200px;">
+                <div class="card-body">
+                <h4 class="card-title text-dark">{{more_x}}</h4>
+                <p class="card-text text-secondary">{{more_details|slice:more_index|last}}</p>
+                </div>
+                <div class="card-footer bg-transparent border-dark">
+                    <div class="row">
+                        <small class="col-sm-6">Updated {{more_times|slice:more_index|last}}</small>
+                        <small class="col-sm-6"><a href="{{more_links|slice:more_index|last}}" class='nav-link'>READ MORE</a></small>
+                    </div>
+                </div>
+            </div>
+        {% endwith %}
+        {% endfor %}
+    
+    </div>
 
     </div>
     

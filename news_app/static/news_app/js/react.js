@@ -10,3 +10,8 @@ function category_close(){
     document.getElementById('categories').style.display='none';
 }
 
+function show_more()
+{
+    document.getElementById("more_news").style.display='inline';
+    document.getElementById("load_more").style.display='none';
+}
