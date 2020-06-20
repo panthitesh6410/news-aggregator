@@ -1,0 +1,6 @@
+
+1. show weather API details on index.html
+2. Work on "Load More" button on index.html that loads more similar latest breaking news.
+3. Scrape news from different categories.
+4. make category links on index.html 
+5. create a dark-mode branch and work on dark theme UI of thw webapp.

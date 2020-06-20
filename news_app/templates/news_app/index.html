@@ -13,9 +13,9 @@
     <header class='container text-left'>
         <div class="row">
             <div class="col-sm-5 mt-3 mr-5">
-                <img id="category_open" src="{% static 'news_app/images/category.png' %}" width=55 height=55 alt="" onclick="category_open()" class='fixed'>
-                <img id="category_close" src="{% static 'news_app/images/close_category.jpg' %}" style='border-radius:300px;' width=55 height=55 alt="" onclick="category_close()" class='fixed'>
-                <span class='ml-3 mt-1 text-dark' style='font-family:stencil;font-size:33px;'>News-Aggregator</span>
+                <img id="category_open" src="{% static 'news_app/images/category.png' %}" width=53 height=53 alt="" onclick="category_open()">
+                <img id="category_close" src="{% static 'news_app/images/close_category.jpg' %}" style='border-radius:300px;' width=53 height=53 alt="" onclick="category_close()">
+                <span class='ml-4 mt-1 text-dark' style='font-family:stencil;font-size:33px;'>News-Aggregator</span>
                 <div class="container mt-2" id='categories'>
                     <div class="row mt-2">
                         <div class="col-sm-6">
@@ -37,8 +37,8 @@
             </div>
             <div class="col-sm-3 ml-1 mt-3 text-center alert alert-warning">
                 <small>TODAY :</small> <br>
-                <small style='color:#000000;'>6th June 2020</small><br>
-                <small style='color:#000000;'>12:30:20 PM</small><br>
+                <small>{% now "jS F Y " %}</small><br>
+                <small>{% now "H:i" %} (UTC)</small><br>
             </div>
             <div class="col-sm-3 ml-1 mt-3 alert alert-warning text-center">
                 <small>WEATHER :</small> <br>
@@ -101,75 +101,23 @@
         <div style='background-color:#e0e1e4;'>Lorem ipsum dolor sit amet consectetur.</div>
         <div style='background-color:#86889d;'>Lorem ipsum dolor sit amet consectetur.</div> -->
 
-<!--  -->
-     
+<!--  -->   
+    {% for x in headlines %}
+    {% with forloop.counter|cut:" " as index %}
         <div class="card container border-secondary mt-4 mb-4" style="max-width: 1200px;">
             <div class="card-body">
-              <h4 class="card-title text-dark">RGPV Exams are Postponed</h4>
-              <p class="card-text text-secondary">Lorem ipsum dolor sit amet consectetur adipisicing elit. Provident, repellat?</p>
+              <h4 class="card-title text-dark">{{x}}</h4>
+              <p class="card-text text-secondary">{{details|slice:index|last}}</p>
             </div>
             <div class="card-footer bg-transparent border-dark">
                 <div class="row">
-                    <small class="col-sm-6">Updated 26th May 2020</small>
-                    <small class="col-sm-6 text-primary">READ MORE</small>
+                    <small class="col-sm-6">Updated {{times|slice:index|last}}</small>
+                    <small class="col-sm-6"><a href="{{links|slice:index|last}}" class='nav-link'>READ MORE</a></small>
                 </div>
             </div>
         </div>
-
-
-        <div class="card container border-secondary mb-4" style="max-width: 1200px;">
-            <div class="card-body">
-              <h4 class="card-title text-dark">RGPV Exams are Postponed</h4>
-              <p class="card-text text-secondary">Lorem ipsum dolor sit amet consectetur adipisicing elit. Provident, repellat?</p>
-            </div>
-            <div class="card-footer bg-transparent border-dark">
-                <div class="row">
-                    <small class="col-sm-6">Updated 26th May 2020</small>
-                    <small class="col-sm-6 text-primary">READ MORE</small>
-                </div>
-            </div>
-        </div>
-
-        <div class="card container border-secondary mb-4" style="max-width: 1200px;">
-            <div class="card-body">
-              <h4 class="card-title text-dark">RGPV Exams are Postponed</h4>
-              <p class="card-text text-secondary">Lorem ipsum dolor sit amet consectetur adipisicing elit. Provident, repellat?</p>
-            </div>
-            <div class="card-footer bg-transparent border-dark">
-                <div class="row">
-                    <small class="col-sm-6">Updated 26th May 2020</small>
-                    <small class="col-sm-6 text-primary">READ MORE</small>
-                </div>
-            </div>
-        </div>
-
-        <div class="card container border-secondary mb-4" style="max-width: 1200px;">
-            <div class="card-body">
-              <h4 class="card-title text-dark">RGPV Exams are Postponed</h4>
-              <p class="card-text text-secondary">Lorem ipsum dolor sit amet consectetur adipisicing elit. Provident, repellat?</p>
-            </div>
-            <div class="card-footer bg-transparent border-dark">
-                <div class="row">
-                    <small class="col-sm-6">Updated 26th May 2020</small>
-                    <small class="col-sm-6 text-primary">READ MORE</small>
-                </div>
-            </div>
-        </div>
-
-        <div class="card container border-secondary mb-4" style="max-width: 1200px;">
-            <div class="card-body">
-              <h4 class="card-title text-dark">RGPV Exams are Postponed</h4>
-              <p class="card-text text-secondary">Lorem ipsum dolor sit amet consectetur adipisicing elit. Provident, repellat?</p>
-            </div>
-            <div class="card-footer bg-transparent border-dark">
-                <div class="row">
-                    <small class="col-sm-6">Updated 26th May 2020</small>
-                    <small class="col-sm-6 text-primary">READ MORE</small>
-                </div>
-            </div>
-        </div>
-        
-
+    {% endwith %}
+    {% endfor %}
         <button class='btn btn-primary'>LOAD MORE</button>
 
     </div>
