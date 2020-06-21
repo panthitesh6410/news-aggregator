@@ -16,6 +16,8 @@
                 <img id="category_open" src="{% static 'news_app/images/category.png' %}" width=53 height=53 alt="" onclick="category_open()">
                 <img id="category_close" src="{% static 'news_app/images/close_category.jpg' %}" style='border-radius:300px;' width=53 height=53 alt="" onclick="category_close()">
                 <span class='ml-4 mt-1 text-dark' style='font-family:stencil;font-size:33px;'>News-Aggregator</span>
+                <span onclick="dark_theme()"><img src="{% static 'news_app/images/light.png' %}" id='light' height=30 alt=""></span>
+                <span onclick="light_theme()"><img src="{% static 'news_app/images/dark.png' %}" id='dark' height=30 alt=""></span>
                 <div class="container mt-2" id='categories'>
                     <div class="row mt-2">
                         <div class="col-sm-6">

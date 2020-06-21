@@ -19,3 +19,10 @@ body{
 #more_news{
     display: none;
 }
+#light{
+    margin-left: 46%;
+}
+#dark{
+    margin-left: 46%;
+    display:none;
+}
