@@ -120,3 +120,7 @@ def news_category(request, category):
         detail = more_divs[i].find('div', attrs={'class':'para-txt'}).text
         more_details.append(detail)
     return render(request, "news_app/news_category.html", {'category':category, 'headlines':headlines, 'details':details, 'times':times, 'links':links, 'more_headlines':more_headlines, 'more_details':more_details, 'more_times':more_times, 'more_links':more_links})
+
+
+def test(request):
+    return render(request, "news_app/test.html")

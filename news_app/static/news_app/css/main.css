@@ -1,14 +1,12 @@
 body{
-    /* color: #1cbfff; */
     font-family: verdana;
-    color: #888888;
-    
-    /* background-color: #121212; */
+    color: #e0e1e4;
+    background-color: #222f4f;
 }
 #categories{
     /* background-color: #ddd; */
     display: none;
-    background-color: #ddd;
+    /* background-color: #ddd; */
 }
 #category_open{
     display: inline;
@@ -19,10 +17,6 @@ body{
 #more_news{
     display: none;
 }
-#light{
-    margin-left: 46%;
-}
-#dark{
-    margin-left: 46%;
-    display:none;
+.card{
+    background-color: #141527;
 }

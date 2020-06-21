@@ -15,35 +15,33 @@
             <div class="col-sm-5 mt-3 mr-5">
                 <img id="category_open" src="{% static 'news_app/images/category.png' %}" width=53 height=53 alt="" onclick="category_open()">
                 <img id="category_close" src="{% static 'news_app/images/close_category.jpg' %}" style='border-radius:300px;' width=53 height=53 alt="" onclick="category_close()">
-                <span class='ml-4 mt-1 text-dark' style='font-family:stencil;font-size:33px;'>News-Aggregator</span>
-                <span onclick="dark_theme()"><img src="{% static 'news_app/images/light.png' %}" id='light' height=30 alt=""></span>
-                <span onclick="light_theme()"><img src="{% static 'news_app/images/dark.png' %}" id='dark' height=30 alt=""></span>
+                <span class='ml-4 mt-1 text-light' style='font-family:stencil;font-size:33px;'>News-Aggregator</span>
                 <div class="container mt-2" id='categories'>
                     <div class="row mt-2">
                         <div class="col-sm-6">
-                            <a href="{% url 'news_category' 'education' %}" class='nav-link ml-4 alert alert-info'>EDUCATIONAL</a>                   
-                            <a href="{% url 'news_category' 'regional' %}" class='nav-link ml-4 alert alert-info'>REGIONAL</a>                   
-                            <a href="{% url 'news_category' 'economy' %}" class='nav-link ml-4 alert alert-info'>ECONOMY</a>                   
-                            <a href="{% url 'news_category' 'business' %}" class='nav-link ml-4 alert alert-info'>BUSINESS</a>                   
+                            <a href="{% url 'news_category' 'education' %}" class='text-center nav-link ml-4 text-secondary alert alert-secondary'>EDUCATIONAL</a>                   
+                            <a href="{% url 'news_category' 'regional' %}" class='text-center nav-link ml-4 text-secondary alert alert-secondary'>REGIONAL</a>                   
+                            <a href="{% url 'news_category' 'economy' %}" class='text-center nav-link ml-4 text-secondary alert alert-secondary'>ECONOMY</a>                   
+                            <a href="{% url 'news_category' 'business' %}" class='text-center nav-link ml-4 text-secondary alert alert-secondary'>BUSINESS</a>                   
                         </div>
                         <div class="col-sm-6">
-                            <a href="{% url 'news_category' 'international' %}" class='nav-link ml-4 alert alert-info'>INTERNATIONAL</a>                   
-                            <a href="{% url 'news_category' 'medical' %}" class='nav-link ml-4 alert alert-info'>MEDICAL</a>  
-                            <a href="{% url 'news_category' 'sports' %}" class='nav-link ml-4 alert alert-info'>SPORTS</a>                   
-                            <a href="{% url 'news_category' 'entertainment' %}" class='nav-link ml-4 alert alert-info'>ENTERTAINMENT</a>  
+                            <a href="{% url 'news_category' 'international' %}" class='text-center nav-link ml-4 text-secondary alert alert-secondary'>INTERNATIONAL</a>                   
+                            <a href="{% url 'news_category' 'medical' %}" class='text-center nav-link ml-4 text-secondary alert alert-secondary'>MEDICAL</a>  
+                            <a href="{% url 'news_category' 'sports' %}" class='text-center nav-link ml-4 text-secondary alert alert-secondary'>SPORTS</a>                   
+                            <a href="{% url 'news_category' 'entertainment' %}" class='text-center nav-link ml-4 text-secondary alert alert-secondary'>ENTERTAINMENT</a>  
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="col-sm-3 ml-1 mt-3 text-center alert alert-warning">
+            <div class="col-sm-3 ml-1 mt-3 text-center">
                 <small>TODAY :</small> <br>
-                <small>{% now "jS F Y " %}</small><br>
-                <small>{% now "H:i" %} (UTC)</small><br>
+                <small style='color:#57aaac;'>{% now "jS F Y " %}</small><br>
+                <small style='color:#57aaac;'>{% now "H:i" %} (UTC)</small><br>
             </div>
-            <div class="col-sm-3 ml-1 mt-3 alert alert-warning text-center">
+            <div class="col-sm-3 ml-1 mt-3 text-center">
                 <small>WEATHER :</small> <br>
                 <small>
-                    <select name="region" id="region" class='text-center form-control w-auto mb-1 mt-1 badge badge-warning'>
+                    <!-- <select name="region" id="region" class='text-center form-control w-auto mb-1 mt-1 badge badge-warning'>
                         <script>
                             var countries = ["Delhi", "Kolkata", "MP", "UP", "Tamil", "Gujarat", "Uttrakhand", "HP", "Telangana"]
                             var open_tag = "<option>"
@@ -53,18 +51,17 @@
                                 document.write(open_tag+countries[i]+close_tag)
                             }
                         </script>
-                    </select><br>
+                    </select><br> -->
                 </small>
-                <small style='color:#000000;'>23 Celcius / 296 Ferhenite </small><br>
+                <small style='color:#57aaac;'>23 Celcius / 296 Ferhenite </small><br>
                 <!-- <small style='color:#000000;'>( Rainy )</small> -->
             </div>
         </div>
     </header>
 
-    <div class="container alert alert-danger mt-4 text-secondary">
-        <h5 class="text-dark">COVID-19 Latest Cases Updates -</h5>
-        <hr>
-        <table class='table' border=1>
+    <div class="container  mt-5 text-secondary">
+        <h5 class="text-center" style='color:#ddd;'>COVID-19 Latest Cases Updates -</h5>
+        <table class='table' border=1 style="color:#ddd;">
             <tr>
                 <th></th>
                 <th>Infected</th>
@@ -87,31 +84,20 @@
     </div>
 
 
-<hr>
-    <div id="news" class="container text-center mt-2 mb-5">
-        <h3 class='alert alert-dark text-secondary mt-2'>TOP LATEST NEWS</h3>
-        
-<!--  -->
-                            <!-- dark mode theme -->
-        
-        <!-- <div style='background-color:#141527;'>Lorem ipsum dolor sit amet consectetur.</div>
-        <div style='background-color:#222f4f;'>Lorem ipsum dolor sit amet consectetur.</div>
-        <div style='background-color:#5ad5ce;'>Lorem ipsum dolor sit amet consectetur.</div>
-        <div style='background-color:#57aaac;'>Lorem ipsum dolor sit amet consectetur.</div>
-        <div style='background-color:#e0e1e4;'>Lorem ipsum dolor sit amet consectetur.</div>
-        <div style='background-color:#86889d;'>Lorem ipsum dolor sit amet consectetur.</div> -->
 
-<!--  -->   
+    <div id="news" class="container text-center mt-2 mb-5">
+        <h3 class='mt-2'>TOP LATEST NEWS</h3>
+        
     {% for x in headlines %}
     {% with forloop.counter|cut:" " as index %}
-        <div class="card container border-secondary mt-4 mb-4" style="max-width: 1200px;">
+        <div class="card container border-dark mt-4 mb-4" style="max-width: 1200px;">
             <div class="card-body">
-              <h4 class="card-title text-dark">{{x}}</h4>
-              <p class="card-text text-secondary">{{details|slice:index|last}}</p>
+              <h4 class="card-title" style='color:#ddd;'>{{x}}</h4>
+              <p class="card-text text-secondary" style='color:#888888;'>{{details|slice:index|last}}</p>
             </div>
             <div class="card-footer bg-transparent border-dark">
                 <div class="row">
-                    <small class="col-sm-6">Updated {{times|slice:index|last}}</small>
+                    <small class="col-sm-6 text-secondary">Updated {{times|slice:index|last}}</small>
                     <small class="col-sm-6"><a href="{{links|slice:index|last}}" class='nav-link'>READ MORE</a></small>
                 </div>
             </div>
@@ -119,19 +105,19 @@
     {% endwith %}
     {% endfor %}
         
-    <button class='btn btn-primary' id='load_more' onclick="show_more()">LOAD MORE</button>
+    <button class='btn btn-info' id='load_more' onclick="show_more()">LOAD MORE</button>
 
     <div class="container" id="more_news">
         {% for more_x in more_headlines %}
         {% with forloop.counter|cut:" " as more_index %}
-            <div class="card container border-secondary mt-4 mb-4" style="max-width: 1200px;">
+            <div class="card container border-dark mt-4 mb-4" style="max-width: 1200px;">
                 <div class="card-body">
-                <h4 class="card-title text-dark">{{more_x}}</h4>
-                <p class="card-text text-secondary">{{more_details|slice:more_index|last}}</p>
+                <h4 class="card-title" style='color:#ddd;'>{{more_x}}</h4>
+                <p class="card-text text-secondary" style='color:#ddd;'>{{more_details|slice:more_index|last}}</p>
                 </div>
                 <div class="card-footer bg-transparent border-dark">
                     <div class="row">
-                        <small class="col-sm-6">Updated {{more_times|slice:more_index|last}}</small>
+                        <small class="col-sm-6 text-secondary">Updated {{more_times|slice:more_index|last}}</small>
                         <small class="col-sm-6"><a href="{{more_links|slice:more_index|last}}" class='nav-link'>READ MORE</a></small>
                     </div>
                 </div>
