@@ -1,0 +1,120 @@
+    {% load static %}
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>News Aggregator</title>
+        <link rel="stylesheet" href="{% static 'news_app/css/bootstrap.min.css' %}">
+        <link rel="stylesheet" href="{% static 'news_app/css/main.css' %}">
+        <link rel="stylesheet" href="{% static 'news_app/js/bootstrap.min.js' %}">
+    </head>
+    <body>
+        <header class='container text-left'>
+            <div class="row">
+                <div class="col-sm-5 mt-3 mr-5">
+                    <img id="category_open" src="{% static 'news_app/images/category.png' %}" width=53 height=53 alt="" onclick="category_open()">
+                    <img id="category_close" src="{% static 'news_app/images/close_category.jpg' %}" style='border-radius:300px;' width=53 height=53 alt="" onclick="category_close()">
+                    <a href="{% url 'index' %}"><span class='ml-4 mt-1 text-dark' style='font-family:stencil;font-size:33px;'>News-Aggregator</span></a>
+                    <div class="container mt-2" id='categories'>
+                        <div class="row mt-2">
+                            <div class="col-sm-6">
+                                <a href="{% url 'news_category' 'education' %}" class='nav-link ml-4 alert alert-info'>EDUCATIONAL</a>                   
+                                <a href="{% url 'news_category' 'regional' %}" class='nav-link ml-4 alert alert-info'>REGIONAL</a>                   
+                                <a href="{% url 'news_category' 'economy' %}" class='nav-link ml-4 alert alert-info'>ECONOMY</a>                   
+                                <a href="{% url 'news_category' 'business' %}" class='nav-link ml-4 alert alert-info'>BUSINESS</a>                   
+                            </div>
+                            <div class="col-sm-6">
+                                <a href="{% url 'news_category' 'international' %}" class='nav-link ml-4 alert alert-info'>INTERNATIONAL</a>                   
+                                <a href="{% url 'news_category' 'medical' %}" class='nav-link ml-4 alert alert-info'>MEDICAL</a>  
+                                <a href="{% url 'news_category' 'sports' %}" class='nav-link ml-4 alert alert-info'>SPORTS</a>                   
+                                <a href="{% url 'news_category' 'entertainment' %}" class='nav-link ml-4 alert alert-info'>ENTERTAINMENT</a>  
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- <div class="col-sm-3 ml-1 mt-3 text-center alert alert-warning">
+                    <small>TODAY :</small> <br>
+                    <small>{% now "jS F Y " %}</small><br>
+                    <small>{% now "H:i" %} (UTC)</small><br>
+                </div>
+                <div class="col-sm-3 ml-1 mt-3 alert alert-warning text-center">
+                    <small>WEATHER :</small> <br>
+                    <small>
+                        <select name="region" id="region" class='text-center form-control w-auto mb-1 mt-1 badge badge-warning'>
+                            <script>
+                                var countries = ["Delhi", "Kolkata", "MP", "UP", "Tamil", "Gujarat", "Uttrakhand", "HP", "Telangana"]
+                                var open_tag = "<option>"
+                                var close_tag = "</option>"
+                                for(var i=0;i<countries.length;i++)
+                                {
+                                    document.write(open_tag+countries[i]+close_tag)
+                                }
+                            </script>
+                        </select><br>
+                    </small>
+                    <small style='color:#000000;'>23 Celcius / 296 Ferhenite </small><br>
+                     <small style='color:#000000;'>( Rainy )</small> 
+                </div>
+            </div> -->
+        </header>
+
+
+
+    <div id="news" class="container text-center mt-4 mb-5">
+            <h3 class='alert alert-dark text-secondary mt-2' style='font-family: stencil;'>{{category}}</h3>
+            
+        {% for x in headlines %}
+        {% with forloop.counter|cut:" " as index %}
+            <div class="card container border-secondary mt-4 mb-4" style="max-width: 1200px;">
+                <div class="card-body">
+                  <h4 class="card-title text-dark">{{x}}</h4>
+                  <p class="card-text text-secondary">{{details|slice:index|last}}</p>
+                </div>
+                <div class="card-footer bg-transparent border-dark">
+                    <div class="row">
+                        <small class="col-sm-6">Updated {{times|slice:index|last}}</small>
+                        <small class="col-sm-6"><a href="{{links|slice:index|last}}" class='nav-link'>READ MORE</a></small>
+                    </div>
+                </div>
+            </div>
+        {% endwith %}
+        {% endfor %}
+            
+        <button class='btn btn-primary' id='load_more' onclick="show_more()">LOAD MORE</button>
+    
+        <div class="container" id="more_news">
+            {% for more_x in more_headlines %}
+            {% with forloop.counter|cut:" " as more_index %}
+                <div class="card container border-secondary mt-4 mb-4" style="max-width: 1200px;">
+                    <div class="card-body">
+                    <h4 class="card-title text-dark">{{more_x}}</h4>
+                    <p class="card-text text-secondary">{{more_details|slice:more_index|last}}</p>
+                    </div>
+                    <div class="card-footer bg-transparent border-dark">
+                        <div class="row">
+                            <small class="col-sm-6">Updated {{more_times|slice:more_index|last}}</small>
+                            <small class="col-sm-6"><a href="{{more_links|slice:more_index|last}}" class='nav-link'>READ MORE</a></small>
+                        </div>
+                    </div>
+                </div>
+            {% endwith %}
+            {% endfor %}
+        
+        </div>
+    </div>
+        
+
+        <footer class='container text-center mt-5'>
+            @ COPYWRITE 2020
+        </footer>
+        
+        <script src='{% static "news_app/js/jquery.js" %}'></script>
+        <script src='{% static "news_app/js/react.js" %}'></script>
+        
+    </body>
+    </html>
+
+    <script>
+        
+    </script>

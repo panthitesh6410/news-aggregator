@@ -19,18 +19,16 @@
                 <div class="container mt-2" id='categories'>
                     <div class="row mt-2">
                         <div class="col-sm-6">
-                            <a href="#" class='nav-link ml-4 alert alert-info'>TECHNOLOGY</a>                   
-                            <a href="#" class='nav-link ml-4 alert alert-info'>POLITICS</a>                   
-                            <a href="#" class='nav-link ml-4 alert alert-info'>ECONOMY</a>                   
-                            <a href="#" class='nav-link ml-4 alert alert-info'>BUSINESS</a>                   
-                            <a href="#" class='nav-link ml-4 alert alert-info'>SPORTS</a>                   
+                            <a href="{% url 'news_category' 'education' %}" class='nav-link ml-4 alert alert-info'>EDUCATIONAL</a>                   
+                            <a href="{% url 'news_category' 'regional' %}" class='nav-link ml-4 alert alert-info'>REGIONAL</a>                   
+                            <a href="{% url 'news_category' 'economy' %}" class='nav-link ml-4 alert alert-info'>ECONOMY</a>                   
+                            <a href="{% url 'news_category' 'business' %}" class='nav-link ml-4 alert alert-info'>BUSINESS</a>                   
                         </div>
                         <div class="col-sm-6">
-                            <a href="#" class='nav-link ml-4 alert alert-info'>REGIONAL</a>                   
-                            <a href="#" class='nav-link ml-4 alert alert-info'>INTERNATIONAL</a>                   
-                            <a href="#" class='nav-link ml-4 alert alert-info'>MEDICAL</a>  
-                            <a href="#" class='nav-link ml-4 alert alert-info'>ENTERTAINMENT</a>  
-                            <a href="#" class='nav-link ml-4 alert alert-info'>MISCELLANOUS</a>                   
+                            <a href="{% url 'news_category' 'international' %}" class='nav-link ml-4 alert alert-info'>INTERNATIONAL</a>                   
+                            <a href="{% url 'news_category' 'medical' %}" class='nav-link ml-4 alert alert-info'>MEDICAL</a>  
+                            <a href="{% url 'news_category' 'sports' %}" class='nav-link ml-4 alert alert-info'>SPORTS</a>                   
+                            <a href="{% url 'news_category' 'entertainment' %}" class='nav-link ml-4 alert alert-info'>ENTERTAINMENT</a>  
                         </div>
                     </div>
                 </div>
