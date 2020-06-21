@@ -1,4 +1,2 @@
 1. show weather API details on index.html
-2. Scrape news from different categories.
-4. make category links on index.html 
-5. create a dark-mode branch and work on dark theme UI of thw webapp.
+2. create a dark-mode branch and work on dark theme UI of thw webapp.
