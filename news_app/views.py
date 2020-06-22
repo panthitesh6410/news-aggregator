@@ -7,6 +7,15 @@ import requests
 # Create your views here.
 
 def index(request):
+    # weather API :
+    temp = ''
+    icon=''
+    if request.method == "POST":
+        city = request.POST['city']
+        weather_url = "https://api.openweathermap.org/data/2.5/weather?q={}&appid=02932c15d8c1e439dbf5fa66cd048d5a" 
+        r = requests.get(weather_url.format(city)).json()
+        temp = r['main']['temp']
+        icon = r['weather'][0]['icon']
     # covid-19 cases :
     res1 = requests.get("https://www.worldometers.info/coronavirus/")
     soup1 = bs4.BeautifulSoup(res1.text, 'lxml')
@@ -55,7 +64,7 @@ def index(request):
         more_times.append(t)  
         detail = more_divs[i].find('div', attrs={'class':'para-txt'}).text
         more_details.append(detail)
-    return render(request, "news_app/index.html", {'total_cases':total_cases, 'total_deaths':total_deaths, 'total_recovered':total_recovered, 'india_cases':india_cases, 'india_deaths':india_deaths, 'india_recovered':india_recovered, 'headlines':headlines, 'details':details, 'times':times, 'links':links, 'more_headlines':more_headlines, 'more_details':more_details, 'more_times':more_times, 'more_links':more_links})    
+    return render(request, "news_app/index.html", {'total_cases':total_cases, 'total_deaths':total_deaths, 'total_recovered':total_recovered, 'india_cases':india_cases, 'india_deaths':india_deaths, 'india_recovered':india_recovered, 'headlines':headlines, 'details':details, 'times':times, 'links':links, 'more_headlines':more_headlines, 'more_details':more_details, 'more_times':more_times, 'more_links':more_links, 'temp':temp, 'icon':icon})    
 
 
 def news_category(request, category):

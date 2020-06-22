@@ -1,2 +1,0 @@
-1. show weather API details on index.html
-2. create a dark-mode branch and work on dark theme UI of thw webapp.

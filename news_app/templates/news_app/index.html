@@ -39,21 +39,24 @@
                 <small style='color:#57aaac;'>{% now "H:i" %} (UTC)</small><br>
             </div>
             <div class="col-sm-3 ml-1 mt-3 text-center">
-                <small>WEATHER :</small> <br>
+                <form action="" method="POST">
+                    {% csrf_token %}
+                    <small>WEATHER :</small> <br>
                 <small>
-                    <!-- <select name="region" id="region" class='text-center form-control w-auto mb-1 mt-1 badge badge-warning'>
+                    <select name="city" id="region" class='text-center form-control w-auto mb-1 mt-1 badge badge-dark'>
                         <script>
-                            var countries = ["Delhi", "Kolkata", "MP", "UP", "Tamil", "Gujarat", "Uttrakhand", "HP", "Telangana"]
-                            var open_tag = "<option>"
-                            var close_tag = "</option>"
+                            var countries = ["Delhi", "Maharastra", "Kolkata", "Madhya Pradesh", "Uttar Pradesh", "Tamil Nadu", "Gujarat", "Uttrakhand", "HP", "Telangana"]
                             for(var i=0;i<countries.length;i++)
                             {
-                                document.write(open_tag+countries[i]+close_tag)
+                                document.write("<option value='"+countries[i]+"'>"+countries[i]+"</option>")
                             }
                         </script>
-                    </select><br> -->
+                    </select>
+                    <input type="submit" value="CHECK" class='btn btn-secondary'>
+                <br>
                 </small>
-                <small style='color:#57aaac;'>23 Celcius / 296 Ferhenite </small><br>
+                </form>
+                </small><small style='color:#57aaac;'>{{temp}} Ferhenite </small><br>
                 <!-- <small style='color:#000000;'>( Rainy )</small> -->
             </div>
         </div>
