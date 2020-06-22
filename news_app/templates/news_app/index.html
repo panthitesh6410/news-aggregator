@@ -129,9 +129,12 @@
         {% endfor %}
     
     </div>
-
     </div>
-    
+ 
+<div class="loader-wrapper">
+    <span class="loader"><span class="loader-inner"></span></span>
+</div>
+
     <footer class='container text-center'>
         @ COPYWRITE 2020
     </footer>
@@ -143,5 +146,7 @@
 </html>
 
 <script>
-    
+    $(window).on("load", function(){
+        $(".loader-wrapper").fadeOut("slow");
+    })
 </script>
